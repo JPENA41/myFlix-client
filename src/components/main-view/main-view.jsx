@@ -17,7 +17,7 @@ export class MainView extends React.Component {
         { _id: 2,
              Title: 'The Shawshank Redemption', 
              Description: 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency. Chronicles the experiences of a formerly successful banker as a prisoner in the gloomy jailhouse of Shawshank after being found guilty of a crime he did not commit.', 
-             ImagePath: './img/shawnshankRedemption.jpg',
+             ImagePath: './img/shawshankRedemption.jpg',
              Genre: 'Drama',
              Director: 'Frank Darabont'},
         { _id: 3, 
