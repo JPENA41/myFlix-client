@@ -24408,94 +24408,82 @@ parcelHelpers.export(exports, "LoginView", ()=>LoginView
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-class LoginView extends _reactDefault.default.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            username: '',
-            password: ''
-        };
-        this.onUsernameChange = this.onUsernameChange.bind(this);
-        this.onPasswordChange = this.onPasswordChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-    onUsernameChange(event) {
-        this.setState({
-            username: event.target.value
-        });
-    }
-    onPasswordChange(event) {
-        this.setState({
-            password: event.target.value
-        });
-    }
-    handleSubmit() {
-        const { username , password  } = this.state;
+var _s = $RefreshSig$();
+function LoginView(props) {
+    _s();
+    const [username, setUsername] = _react.useState('');
+    const [password, setPassword] = _react.useState('');
+    const handleSubmit = (e)=>{
+        e.preventDefault();
         console.log(username, password);
-    /* Send a request to the server for authentication */ /* then call this.props.onLoggedIn(username) */ // this.props.onLoggedIn(username);
-    }
-    render() {
-        return(/*#__PURE__*/ _jsxRuntime.jsxs("form", {
-            __source: {
-                fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 39
-            },
-            __self: this,
-            children: [
-                /*#__PURE__*/ _jsxRuntime.jsxs("label", {
-                    __source: {
-                        fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 40
-                    },
-                    __self: this,
-                    children: [
-                        "Username:",
-                        /*#__PURE__*/ _jsxRuntime.jsx("input", {
-                            type: "text",
-                            value: this.state.username,
-                            onChange: this.onUsernameChange,
-                            __source: {
-                                fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 42
-                            },
-                            __self: this
-                        })
-                    ]
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsxs("label", {
-                    __source: {
-                        fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 44
-                    },
-                    __self: this,
-                    children: [
-                        "Password:",
-                        /*#__PURE__*/ _jsxRuntime.jsx("input", {
-                            type: "password",
-                            value: this.state.password,
-                            onChange: this.onPasswordChange,
-                            __source: {
-                                fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 46
-                            },
-                            __self: this
-                        })
-                    ]
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsx("button", {
-                    type: "button",
-                    onClick: this.handleSubmit,
-                    __source: {
-                        fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 48
-                    },
-                    __self: this,
-                    children: "Submit"
-                })
-            ]
-        }));
-    }
+        /* Send a request to the server for authentication */ /* then call props.onLoggedIn(username) */ props.onLoggedIn(username);
+    };
+    return(/*#__PURE__*/ _jsxRuntime.jsxs("form", {
+        __source: {
+            fileName: "src/components/login-view/login-view.jsx",
+            lineNumber: 16
+        },
+        __self: this,
+        children: [
+            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
+                __source: {
+                    fileName: "src/components/login-view/login-view.jsx",
+                    lineNumber: 17
+                },
+                __self: this,
+                children: [
+                    "Username:",
+                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                        type: "text",
+                        value: username,
+                        onChange: (e)=>setUsername(e.target.value)
+                        ,
+                        __source: {
+                            fileName: "src/components/login-view/login-view.jsx",
+                            lineNumber: 19
+                        },
+                        __self: this
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
+                __source: {
+                    fileName: "src/components/login-view/login-view.jsx",
+                    lineNumber: 21
+                },
+                __self: this,
+                children: [
+                    "Password:",
+                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                        type: "password",
+                        value: password,
+                        onChange: (e)=>setPassword(e.target.value)
+                        ,
+                        __source: {
+                            fileName: "src/components/login-view/login-view.jsx",
+                            lineNumber: 23
+                        },
+                        __self: this
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("button", {
+                type: "submit",
+                onClick: handleSubmit,
+                __source: {
+                    fileName: "src/components/login-view/login-view.jsx",
+                    lineNumber: 25
+                },
+                __self: this,
+                children: "Submit"
+            })
+        ]
+    }));
 }
+_s(LoginView, "9FY2cPL9VBDmuhjwpF2ik6flsHs=");
+_c = LoginView;
+var _c;
+$RefreshReg$(_c, "LoginView");
 
   $parcel$ReactRefreshHelpers$02dd.postlude(module);
 } finally {
