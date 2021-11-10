@@ -1,56 +1,72 @@
 import React from 'react';
+import axios from 'axios';
+
+import { LoginView } from '../login-view/login-view';
+import { RegistrationView } from "../registration-view/registration-view";
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from "../movie-view/movie-view";
 
 export class MainView extends React.Component {
-    
-  constructor(){
+
+  constructor() {
     super();
     this.state = {
-      movies: [
-        { _id: 1, 
-            Title: 'Inception', 
-            Description: 'The film stars Leonardo DiCaprio as a professional thief who steals information by infiltrating the subconscious of his targets. He is offered a chance to have his criminal history erased as payment for the implantation of another person\'s idea into a target\'s subconscious.', 
-            ImagePath: './img/inception.jpg',
-            Genre: 'Sc-fi',
-            Director: 'Christopher Nolan'},
-        { _id: 2,
-             Title: 'The Shawshank Redemption', 
-             Description: 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency. Chronicles the experiences of a formerly successful banker as a prisoner in the gloomy jailhouse of Shawshank after being found guilty of a crime he did not commit.', 
-             ImagePath: './img/shawshankRedemption.jpg',
-             Genre: 'Drama',
-             Director: 'Frank Darabont'},
-        { _id: 3, 
-            Title: 'Gladiator', 
-            Description: 'A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery. Maximus is a powerful Roman general, loved by the people and the aging Emperor, Marcus Aurelius. Maximus is then relegated to fighting to the death in the gladiator arenas.', 
-            ImagePath: './img/gladiator.jpg',
-            Genre: 'Adventure',
-            Director: 'Ridley Scott'},
-      ],
-      selectedMovie: null
-    };
+      movies: [],
+      selectedMovie: null,
+      user: null
+    }
   }
+
+  componentDidMount(){
+    axios.get('https://protected-gorge-74849.herokuapp.com/movies')
+      .then(response => {
+        this.setState({
+          movies: response.data
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+  /*When a movie is clicked, this function is invoked and updates the state of the `selectedMovie`
+   *property to that movie*/
 
   setSelectedMovie(newSelectedMovie) {
     this.setState({
       selectedMovie: newSelectedMovie
     });
   }
-  
+
+/* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
+
+  onLoggedIn(user) {
+    this.setState({
+      user
+    });
+  }
+
   render() {
-    const { movies, selectedMovie } = this.state;
-  
-    if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
-  
+    const { movies, selectedMovie, user } = this.state;
+
+    /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details 
+    are *passed as a prop to the LoginView*/
+    if(!user) return  <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+
+    // Before the movies have been loaded
+    if (movies.length === 0) return <div className="main-view" />;
+
     return (
-        <div className="main-view">
-          {selectedMovie
-            ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-            : movies.map(movie => (
-              <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }}/>
-            ))
-          }
-        </div>
-      );  
-  }  
+      <div className="main-view">
+        {/*If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, 
+        all *movies will be returned*/}
+        {selectedMovie
+          ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+          : movies.map(movie => (
+            <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }}/>
+         ))
+        }
+      </div>
+    );
+  }
 }
