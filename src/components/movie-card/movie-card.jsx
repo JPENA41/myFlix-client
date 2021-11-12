@@ -35,6 +35,7 @@ MovieCard.propTypes = {
       Birth: PropTypes.date,
       Death: PropTypes.date
     }),
+    Actors: PropTypes.array.isRequired,
     }).isRequired,
     onMovieClick: PropTypes.func.isRequired
 };
