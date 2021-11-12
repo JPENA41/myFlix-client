@@ -26356,7 +26356,8 @@ MovieCard.propTypes = {
             Bio: _propTypesDefault.default.string.isRequired,
             Birth: _propTypesDefault.default.date,
             Death: _propTypesDefault.default.date
-        })
+        }),
+        Actors: _propTypesDefault.default.array.isRequired
     }).isRequired,
     onMovieClick: _propTypesDefault.default.func.isRequired
 };
