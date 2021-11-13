@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
 
+// SCSS Import
+import "./login-view.scss";
 
+// React Bootstrap 
+import { Navbar, Container, Nav, Form, Button, Card, Container } from 'react-bootstrap';
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
@@ -17,20 +19,48 @@ export function LoginView(props) {
   };
 
   return (
-    <Form>
-      <Form.Group controlId="formUsername">
-        <Form.Label>Username:</Form.Label>
-        <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
-      </Form.Group>
+    <>
+      <Navbar expand="lg" bg="primary" variant="dark">
+      <Container>
+      <Navbar.Brand href="#myflix">My Flix</Navbar.Brand>
+          <Nav className="me-auto">
+          <Nav.Link href="#profile">Profile</Nav.Link>
+          <Nav.Link href="#update-profile">Update Profile</Nav.Link>
+          <Nav.Link href="#logout">Logout</Nav.Link>
+          </Nav>
+      </Container>
+      </Navbar>
 
-      <Form.Group controlId="formPassword">
-        <Form.Label>Password:</Form.Label>
-        <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
-      </Form.Group>
-      <Button variant="primary" type="submit" onClick={handleSubmit}>
-        Submit
-      </Button>
-    </Form>
+      <Container fluid className="loginContainer" >   
+        <Card className="loginCard">
+          <Card.Body>
+            <Card.Title className="text-center">Welcome to the login page!</Card.Title>
+            <Card.Subtitle className="mb-2 text-muted text-center">Please Login</Card.Subtitle>
+            <Form >
+              <Form.Group controlId="formUsername">
+                <Form.Label>Username</Form.Label>
+                <Form.Control 
+                  type="text" 
+                  onChange={e => setUsername(e.target.value)}
+                  placeholder="Enter a username"
+                />
+              </Form.Group>
+              <Form.Group controlId="formPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control 
+                  className="mb-3" 
+                  type="password" 
+                  onChange={e => setPassword(e.target.value)}
+                />
+              </Form.Group>
+              <Button className="loginButton" variant="secondary" size="lg" type="submit" onClick={handleSubmit}>
+                Login
+              </Button>
+            </Form>
+          </Card.Body>
+        </Card>
+      </Container>
+    </>
   );
 }
 

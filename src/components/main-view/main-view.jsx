@@ -1,11 +1,17 @@
 import React from 'react';
 import axios from 'axios';
 
+// SCSS Import
+import "./main-view.scss";
+
+// React Components
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from "../registration-view/registration-view";
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from "../movie-view/movie-view";
 
+// React Bootstrap 
+import { Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
 export class MainView extends React.Component {
 
   constructor() {
@@ -57,20 +63,33 @@ export class MainView extends React.Component {
     if (movies.length === 0) return <div className="main-view" />;
 
     return (
-      <div className="main-view">
+      <>
+        <Navbar expand="lg" bg="primary" variant="dark">
+        <Container>
+        <Navbar.Brand href="#myflix">My Flix</Navbar.Brand>
+            <Nav className="me-auto">
+            <Nav.Link href="#profile">Profile</Nav.Link>
+            <Nav.Link href="#update-profile">Update Profile</Nav.Link>
+            <Nav.Link href="#logout">Logout</Nav.Link>
+            </Nav>
+        </Container>
+        </Navbar>
+
+        <Row className="main-view justify-content-md-center">
         {selectedMovie
           ? (
-            <Row>
-              <Col>
-                <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-              </Col>
-            </Row>
+            <Col md={8}>
+              <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+            </Col>
           )
           : movies.map(movie => (
-            <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+            <Col md={3}>
+              <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+            </Col>
           ))
         }
-      </div>
+        </Row>
+      </>
     );    
   }
 }
