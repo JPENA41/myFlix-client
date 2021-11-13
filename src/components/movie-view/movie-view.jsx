@@ -79,7 +79,7 @@ MovieView.propTypes = {
       Birth: PropTypes.date,
       Death: PropTypes.date
     }),
-    Actors: PropTypes.array.isRequired,
+    Actors: PropTypes.array,
     Featured: PropTypes.bool,
     ImagePath: PropTypes.string.isRequired
     }).isRequired,

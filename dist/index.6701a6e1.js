@@ -38032,7 +38032,7 @@ MovieView.propTypes = {
             Birth: _propTypesDefault.default.date,
             Death: _propTypesDefault.default.date
         }),
-        Actors: _propTypesDefault.default.array.isRequired,
+        Actors: _propTypesDefault.default.array,
         Featured: _propTypesDefault.default.bool,
         ImagePath: _propTypesDefault.default.string.isRequired
     }).isRequired,
