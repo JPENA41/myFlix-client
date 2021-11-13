@@ -24712,11 +24712,19 @@ function LoginView(props) {
 _s(LoginView, "9FY2cPL9VBDmuhjwpF2ik6flsHs=");
 _c = LoginView;
 LoginView.propTypes = {
+<<<<<<< Updated upstream
     user: _propTypesDefault.default.shape({
         username: _propTypesDefault.default.string.isRequired,
         password: _propTypesDefault.default.string.isRequired
     }),
     onLoggedIn: _propTypesDefault.default.func.isRequired
+=======
+    user: PropTypes.shape({
+        username: PropTypes.string.isRequired,
+        password: PropTypes.string.isRequired
+    }),
+    onLoggedIn: PropTypes.func.isRequired
+>>>>>>> Stashed changes
 };
 var _c;
 $RefreshReg$(_c, "LoginView");
@@ -37610,6 +37618,16 @@ class NavbarView extends _reactDefault.default.Component {
         }));
     }
 }
+<<<<<<< Updated upstream
+=======
+_s(LoginView, "9FY2cPL9VBDmuhjwpF2ik6flsHs=");
+_c = LoginView;
+RegistrationView.propTypes = {
+    onRegistration: PropTypes.func.isRequired
+};
+var _c;
+$RefreshReg$(_c, "LoginView");
+>>>>>>> Stashed changes
 
   $parcel$ReactRefreshHelpers$469c.postlude(module);
 } finally {
@@ -37712,9 +37730,13 @@ MovieCard.propTypes = {
             Birth: _propTypesDefault.default.date,
             Death: _propTypesDefault.default.date
         }),
+<<<<<<< Updated upstream
         Actors: _propTypesDefault.default.array,
         Featured: _propTypesDefault.default.bool,
         ImagePath: _propTypesDefault.default.string.isRequired
+=======
+        Actors: _propTypesDefault.default.array.isRequired
+>>>>>>> Stashed changes
     }).isRequired,
     onMovieClick: _propTypesDefault.default.func.isRequired
 };
@@ -38019,6 +38041,7 @@ class MovieView extends _reactDefault.default.Component {
     }
 }
 MovieView.propTypes = {
+<<<<<<< Updated upstream
     movie: _propTypesDefault.default.shape({
         Title: _propTypesDefault.default.string.isRequired,
         Description: _propTypesDefault.default.string.isRequired,
@@ -38037,6 +38060,25 @@ MovieView.propTypes = {
         ImagePath: _propTypesDefault.default.string.isRequired
     }).isRequired,
     onMovieClick: _propTypesDefault.default.func.isRequired
+=======
+    movie: PropTypes.shape({
+        Title: PropTypes.string.isRequired,
+        Description: PropTypes.string.isRequired,
+        ImagePath: PropTypes.string.isRequired,
+        Genre: PropTypes.shape({
+            Name: PropTypes.string.isRequired,
+            Description: PropTypes.string.isRequired
+        }),
+        Director: PropTypes.shape({
+            Name: PropTypes.string.isRequired,
+            Bio: PropTypes.string.isRequired,
+            Birth: PropTypes.date,
+            Death: PropTypes.date
+        }),
+        Actors: PropTypes.array.isRequired
+    }).isRequired,
+    onMovieClick: PropTypes.func.isRequired
+>>>>>>> Stashed changes
 };
 
   $parcel$ReactRefreshHelpers$3741.postlude(module);
