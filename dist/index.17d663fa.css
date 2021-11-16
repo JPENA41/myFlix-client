@@ -1,5 +1,30 @@
+.main-view {
+  font-family: "Lato", sans-serif;
+  background: #fc766aff;
+  width: 100%;
+  display: inline-block;
+}
 
+.mainNavbar {
+  background: #5b84b1ff;
+}
+.loginNavbar {
+  background: #5b84b1ff;
+}
 
+html,
+body,
+#loginCard > div {
+  background: #fc766aff !important;
+  height: 100%;
+}
+
+html,
+body,
+#loginContainer > div {
+  background: #fc766aff !important;
+  height: 100%;
+}
 
 
 
