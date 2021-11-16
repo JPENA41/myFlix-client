@@ -63,8 +63,8 @@ export class MainView extends React.Component {
     if (movies.length === 0) return <div className="main-view" />;
 
     return (
-      <>
-        <Navbar expand="lg" bg="primary" variant="dark">
+      <div className="main-view">
+        <Navbar expand="lg" bg="#162b48" variant="dark" className="mainNavbar">
         <Container>
         <Navbar.Brand href="#myflix">My Flix</Navbar.Brand>
             <Nav className="me-auto">
@@ -89,7 +89,7 @@ export class MainView extends React.Component {
           ))
         }
         </Row>
-      </>
+      </div>
     );    
   }
 }
