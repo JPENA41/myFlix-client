@@ -19,8 +19,8 @@ export function LoginView(props) {
   };
 
   return (
-    <>
-      <Navbar expand="lg" bg="primary" variant="dark">
+    <div className="login-view">
+      <Navbar expand="lg" bg="#5B84B1FF" variant="dark" className="loginNavbar">
       <Container>
       <Navbar.Brand href="#myflix">My Flix</Navbar.Brand>
           <Nav className="me-auto">
@@ -32,7 +32,7 @@ export function LoginView(props) {
       </Navbar>
 
       <Container fluid className="loginContainer" >   
-        <Card className="loginCard">
+        <Card bg="#fc766aff" className="loginCard">
           <Card.Body>
             <Card.Title className="text-center">Welcome to the login page!</Card.Title>
             <Card.Subtitle className="mb-2 text-muted text-center">Please Login</Card.Subtitle>
@@ -51,6 +51,7 @@ export function LoginView(props) {
                   className="mb-3" 
                   type="password" 
                   onChange={e => setPassword(e.target.value)}
+                  placeholder="Enter a password"
                 />
               </Form.Group>
               <Button className="loginButton" variant="secondary" size="lg" type="submit" onClick={handleSubmit}>
@@ -60,7 +61,7 @@ export function LoginView(props) {
           </Card.Body>
         </Card>
       </Container>
-    </>
+    </div>
   );
 }
 
