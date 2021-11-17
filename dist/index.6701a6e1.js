@@ -22920,8 +22920,8 @@ class MainView extends _reactDefault.default.Component {
                                     lineNumber: 87
                                 },
                                 __self: this
-                            }, movie._id)
-                        })
+                            })
+                        }, movie._id)
                     )
                 })
             ]
@@ -37630,7 +37630,7 @@ MovieCard.propTypes = {
         Featured: _propTypesDefault.default.bool,
         ImagePath: _propTypesDefault.default.string.isRequired
     }).isRequired,
-    onMovieClick: _propTypesDefault.default.func.isRequired
+    onBackClick: _propTypesDefault.default.func.isRequired
 };
 
   $parcel$ReactRefreshHelpers$4249.postlude(module);
@@ -37745,7 +37745,7 @@ class MovieView extends _reactDefault.default.Component {
                                 lineNumber: 35
                             },
                             __self: this,
-                            children: movie.Genre
+                            children: movie.Genre.Name
                         })
                     ]
                 }),
@@ -37801,7 +37801,7 @@ class MovieView extends _reactDefault.default.Component {
                                 lineNumber: 43
                             },
                             __self: this,
-                            children: movie.Director
+                            children: movie.Director.Name
                         })
                     ]
                 }),
@@ -37950,7 +37950,7 @@ MovieView.propTypes = {
         Featured: _propTypesDefault.default.bool,
         ImagePath: _propTypesDefault.default.string.isRequired
     }).isRequired,
-    onMovieClick: _propTypesDefault.default.func.isRequired
+    onBackClick: _propTypesDefault.default.func.isRequired
 };
 
   $parcel$ReactRefreshHelpers$3741.postlude(module);
