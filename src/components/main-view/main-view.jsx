@@ -82,11 +82,16 @@ export class MainView extends React.Component {
               <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
             </Col>
           )
-          : movies.map(movie => (
-            <Col md={3}>
-              <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+          : movies.map((movie) => (
+            <Col md={3} key={movie._id}>
+              <MovieCard
+                movie={movie}
+                onMovieClick={(newSelectedMovie) => {
+                  this.setSelectedMovie(newSelectedMovie);
+                }}
+              />
             </Col>
-          ))
+          ))        
         }
         </Row>
       </div>
